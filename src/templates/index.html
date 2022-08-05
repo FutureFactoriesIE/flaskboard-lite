@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>flaskboard-lite</title>
+        <link rel="stylesheet" href="./static/style.css">
+        
+        <!-- codemirror base -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.js" integrity="sha512-n7rucz/qOiYAkYK1CVKuqygMAnohil8Rg6kKAv0IsF2xnHUhnVyD5K9GO25OUvc+WEVZVu+NIYLblIUpkBMNvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <!-- python language support -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/mode/python/python.min.js" integrity="sha512-2M0GdbU5OxkGYMhakED69bw0c1pW3Nb0PeF3+9d+SnwN1ryPx3wiDdNqK3gSM7KAU/pEV+2tFJFbMKjKAahOkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+        <!-- dialog addon -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/dialog/dialog.min.js" integrity="sha512-NAJeqwfpM7/nfX90EweQhjudb66diK3Y9mkBjb4xJ6wufuVqFVAjHd8mJW//CGHNR9cI8wUfDRJ0jtLzZ9v8Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/dialog/dialog.min.css" integrity="sha512-Vogm+Cii1SXP5oxWQyPdkA91rHB776209ZVvX4C/i4ypcfBlWVRXZGodoTDAyyZvO36JlTqDqkMhVKAYc7CMjQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- searchcursor & search addons -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/search/searchcursor.min.js" integrity="sha512-+ZfZDC9gi1y9Xoxi9UUsSp+5k+AcFE0TRNjI0pfaAHQ7VZTaaoEpBZp9q9OvHdSomOze/7s5w27rcsYpT6xU6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/search/search.min.js" integrity="sha512-Mw3RqCUHTyvN3iSp5TSs731TiLqnKrxzyy2UVZv3+tJa524Rj7pBC7Ivv3ka2oDnkQwLOMHNDKU5nMJ16YRgrA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- jump to line addon -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/search/jump-to-line.min.js" integrity="sha512-cFdaiExVrVnsHaQhcn3wR9zyndnXI6w7diUSonYbGoV6v/PgBEGZevVC4gvg+Jz5yfO3K0/r1ZMk3+IcdEl+pQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- match brackets addon -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/edit/matchbrackets.min.js" integrity="sha512-GSYCbN/le5gNmfAWVEjg1tKnOH7ilK6xCLgA7c48IReoIR2g2vldxTM6kZlN6o3VtWIe6fHu/qhwxIt11J8EBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- close brackets addon -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/edit/closebrackets.min.js" integrity="sha512-tsjcYO5hFvViRssxiM7Jhd8601epWOx1He3Hl4yuI5dKKPxr43KxkOhc9GZeeqzlYJm9ABb7UPA9697NiqZZ7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- comment and continuecomment addons -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/comment/comment.min.js" integrity="sha512-UaJ8Lcadz5cc5mkWmdU8cJr0wMn7d8AZX5A24IqVGUd1MZzPJTq9dLLW6I102iljTcdB39YvVcCgBhM0raGAZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/comment/continuecomment.min.js" integrity="sha512-bPfnPUeDAbKU71b0+CKJBuYLXujAOrzS3bjB1GLr5lgmPEjvWYnmjOG8cioWf7YdSj/SaXMCnYr44C/E0XGzTw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- extra keymaps -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/keymap/sublime.min.js" integrity="sha512-SV3qeFFtzcmGtUQPLM7HLy/7GKJ/x3c2PdiF5GZQnbHzIlI2q7r77y0IgLLbBDeHiNfCSBYDQt898Xp0tcZOeA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+    </head>
+    <body onload="on_page_load();">
+        <main>
+            <div id="evaluate_div">
+                <div>
+                    <p>Write python here:</p>
+                    <textarea id="command_field"></textarea>
+                    <form id="main_buttons">
+                        <input type="button" id="run_kill_button" onclick="run_kill();" value="Run">
+                        <input type="button" onclick="save_python();" value="Save...">
+                        <p id="status_indicator">Status: <span id="status_indicator_span">Ready</span></p>
+                    </form>
+                    
+                    <p>Or upload a file:</p>
+                    <form>
+                        <input type="file" id="python_file" accept=".py" multiple>
+                        <input type="button" onclick="upload_files();" value="Upload">
+                    </form>
+                    <p>Uploaded files:</p>
+                    <div id="uploaded_files_div"></div>
+                    
+                    <p>Or install a package:</p>
+                    <form>
+                        <input type="text" id="package_name">
+                        <input type="button" onclick="install_package();" value="Install">
+                    </form>
+                    <p>Installation output:</p>
+                    <p id="install_result"></p>
+                </div>
+                <div id="command_result_div">
+                    <p id="command_result">Result will appear here</p>
+                </div>
+            </div>
+        </main>
+        <script type="text/javascript" src="./static/index.js"></script>
+    </body>
+</html>

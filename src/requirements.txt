@@ -1,0 +1,5 @@
+Flask
+paho-mqtt
+numpy
+matplotlib
+requests

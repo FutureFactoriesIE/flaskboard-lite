@@ -1,0 +1,74 @@
+#evaluate_div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 10px;
+    column-gap: 10px;
+}
+
+#command_result {
+    padding-left: 15px;
+    padding-right: 15px;
+    white-space: pre;
+}
+
+#install_result, #command_result_div, #command_field {
+    font-family: monospace;
+}
+
+#command_result_div {
+    background-color: #aaaaaa;
+}
+
+/* #command_field {
+    height: 40vh;
+    width: 45vw;
+} */
+
+.file_div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-basis: 100%;
+}
+
+.file_button {
+    align-self: flex-end;
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+}
+
+.file_p {
+    margin: 0;
+    margin-left: 10px;
+    padding: 0;
+}
+
+#uploaded_files_div {
+    display: flex;
+    row-gap: 5px;
+    flex-wrap: wrap;
+}
+
+.CodeMirror {
+    border: 1px solid black;
+    margin-bottom: 3px;
+}
+
+/* .CodeMirror-focused {
+    border: 1px solid #003cb3;
+} */
+
+#main_buttons {
+    display: flex;
+    align-items: center;
+    column-gap: 3px;
+}
+
+#status_indicator {
+    flex-grow: 1;
+    text-align: right;
+    margin: 0;
+    font-weight: bold;
+    font-family: monospace;
+}

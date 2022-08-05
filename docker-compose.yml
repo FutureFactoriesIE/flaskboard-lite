@@ -1,0 +1,20 @@
+version: "2.4"
+services:
+    flaskboard-lite:
+        image: flaskboard-lite:latest
+        mem_limit: 300mb
+        restart: "unless-stopped"
+        volumes:
+            - './work_dir/:/app/work_dir/'
+        networks:
+            - proxy-redirect
+        logging: 
+          driver: "json-file"
+          options: 
+            max-size: "10m"
+            max-file: "3"
+
+networks:
+    proxy-redirect:
+        external:
+            name: proxy-redirect
